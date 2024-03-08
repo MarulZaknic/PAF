@@ -10,29 +10,37 @@ def jed_gibanje(masa, sila):
     p_vrijednosti = ((t_vrijednosti**2) * akc) / 2  # početna brzina i akceleracija su 0
     a_vrijednosti = t_vrijednosti * 0 + akc
 
-    plt.plot(t_vrijednosti, v_vrijednosti, label='Continuous Line')
-    plt.xlabel('v_vrijednosti')
-    plt.ylabel('t_vrijednosti')
-    plt.title('v/t_graf')
-    plt.legend()
-    plt.grid(True)
-
-    plt.plot(t_vrijednosti, p_vrijednosti, label='Continuous Line')
-    plt.xlabel('p_vrijednosti')
-    plt.ylabel('t_vrijednosti')
-    plt.title('p/t_graf')
-    plt.legend()
-    plt.grid(True)
-
-    plt.plot(t_vrijednosti, a_vrijednosti, label='Continuous Line')
-    plt.xlabel('a_vrijednosti')
-    plt.ylabel('t_vrijednosti')
-    plt.title('a/t_graf')
+    plt.figure(figsize=(8, 4))
+    plt.plot(t_vrijednosti, v_vrijednosti, label='brzina')
+    plt.xlabel('vrijeme (s)')
+    plt.ylabel('brzina (m/s)')
+    plt.title('v/t graf')
     plt.legend()
     plt.grid(True)
     plt.show()
 
-jed_gibanje(20,5)
+    plt.figure(figsize=(8, 4))
+    plt.plot(t_vrijednosti, p_vrijednosti, label='Položaj')
+    plt.xlabel('vrijeme (s)')
+    plt.ylabel('položaj (m)')
+    plt.title('p/t graf')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+    plt.figure(figsize=(8, 4))
+    plt.plot(t_vrijednosti, a_vrijednosti, label='Akceleracija')
+    plt.xlabel('vrijeme (s)')
+    plt.ylabel('akceleracija (m/s^2)')
+    plt.title('a/t graf')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+jed_gibanje(10, 50)  
+
+
+
 
 
 
