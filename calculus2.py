@@ -35,13 +35,14 @@ def integral_prav(funk_str, točka1, točka2, h):
     gornja_medja = 0
     donja_medja = 0
     ui = (x2_float - x1_float) / h
+    ajkula = (x2_float - x1_float) / (2*h)
     ar_donja = np.linspace(x1_float, x2_float - ui, h)
-    ar_gornja = np.linspace(x1_float + ui, x2_float, h)
+    ar_gornja = np.linspace(x1_float + ui, x2_float, 2*h)
     for u in ar_donja:
         snip = funk(u)*ui
         donja_medja = donja_medja + snip
     for l in ar_gornja:
-        snup = funk(l)*ui
+        snup = funk(l)*ajkula
         gornja_medja = gornja_medja + snup
     return donja_medja, gornja_medja
 def integral_trap(funk_str, točka1, točka2, h):
