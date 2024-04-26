@@ -1,4 +1,4 @@
-import calculus as cal
+import calculus2 as cal
 import numpy as np
 import matplotlib.pyplot as plt
 ana_sinus = np.cos(4)
