@@ -18,8 +18,8 @@ class točkasta_masa:
         lista_tijela.append(self)
 
     def move(self, lista_tijela):
-        G = 9.8
-        dt = 0.01
+        G = 6.67 * (10**(-11))
+        dt = 100000
         vec_rr_cm = 0
         uk_m = 0
         for el in lista_tijela:
@@ -34,10 +34,9 @@ class točkasta_masa:
 
 
 lista_tijela = []
-zemlja = točkasta_masa(8, 40, 8, 0, 0, 0, 100)
-jupiter = točkasta_masa(-40, -20, 28, 0, 0, 0, 100)
-sunce = točkasta_masa(0, 0, 0, 0, 0, 0, 100)
-
+zemlja = točkasta_masa(10, 0, 0, 0, 0 ,0 ,1 )
+sunce = točkasta_masa(0, 0, 0, 0, 0, 0, 10 )
+mate = točkasta_masa(5,28, 6, 0, 0, 0, 69)
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 

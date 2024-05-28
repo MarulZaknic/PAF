@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.animation import FuncAnimation
 
+<<<<<<< HEAD
 class svemir:
     def __init__(self):
         self.lista_planeta = []
@@ -72,16 +73,44 @@ class planet:
         vec_rr_cm = 0
         uk_m = 0
         for el in self.svemir_instance.lista_planeta:
+=======
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+class planet():
+    def __init__(self, x_0, y_0, z_0, vx_0, vy_0, vz_0, m):
+
+        self.x_0 = x_0
+        self.y_0 = y_0
+        self.z_0 = z_0
+        self.vx_0 = vx_0
+        self.vy_0 = vy_0
+        self.vz_0 = vz_0
+        self.m = m
+        self.vec_r = np.array([x_0, y_0, z_0])
+        self.vec_v = np.array([vx_0, vy_0, vz_0])
+
+    def move(self, lista_tijela):
+        G = 6.674 * 10**(-11)
+        dt = 10
+        vec_rr_cm = 0
+        uk_m = 0
+        for el in lista_tijela:
+>>>>>>> bf653c96031f396c3046bc48b3d3e0c1156e6ddf
             if el != self:
                 uk_m += el.m
                 eli = el.m * el.vec_r
                 vec_rr_cm += eli
         vec_r_cm = vec_rr_cm / uk_m
+<<<<<<< HEAD
         self.vec_rpros = self.vec_r
+=======
+>>>>>>> bf653c96031f396c3046bc48b3d3e0c1156e6ddf
         a_num = (- G * uk_m) / (np.linalg.norm(vec_r_cm - self.vec_r))**3 * (self.vec_r - vec_r_cm)
         self.vec_v = self.vec_v + a_num * dt
         self.vec_r = self.vec_r + self.vec_v * dt
 
+<<<<<<< HEAD
 uni1 = svemir()
 uni1.dodavac_planeta(1.495*(10**11),0,0,0,2.972 * (10**4),0,5.972 * (10**24), "zemlja")             ### zemlja ###(1.495*(10**11),0,0,0,2.972 * (10**4),0,5.972 * (10**24))
 uni1.dodavac_planeta(5.6197 * (10**10),0,0,0,4.787 * (10**4),0,3.285*(10**23), "merkur")                                                                   ### merkur ###(5.6197 * (10**10),0,0,0,6.138 * (10**8),0,3.285*(10**23))
@@ -92,3 +121,42 @@ uni1.dodavac_planeta(0,0,0,0,0,0,1.989 * (10**30), "sunce")
 #uni1.dodavac_planeta(0, 0, 0, 0, 0, 0, 10 )
 #uni1.dodavac_planeta(5,28, 6, 0, 0, 0, 69)                                        ### sunce ### (0,0,0,0,0,0,1.989 * (10**30))
 uni1.simulacija(steps=100, interval=10)
+=======
+class universe:
+    def __init__(self):
+        self.lista_tijela = []
+
+    def dodavac_objekata(self, ime, x_p, y_p, z_p, vx_p, vy_p, vz_p, mas):
+
+        ime = planet(x_p, y_p, z_p, vx_p, vy_p, vz_p, mas)
+        self.lista_tijela.append(ime)
+
+    def eulerova_simulacija(self):
+
+        def tick():
+            for el in self.lista_tijela:
+                el.move(self.lista_tijela)
+            ax.set_xlim([-30, 30])
+            ax.set_ylim([-30, 30])
+            ax.set_zlim([-30, 30])
+            ax.clear()
+            for el in self.lista_tijela:
+                ax.scatter(el.vec_r[0], el.vec_r[1], el.vec_r[2], s=el.m)
+        ani = FuncAnimation(fig, tick, frames=range(1800), interval=16)
+        plt.show()
+
+
+
+        
+        
+# frame delay = 16.67
+# frame number = 1800
+        
+
+        
+uni1 = universe()
+uni1.dodavac_objekata("mate", 0, 0, 0, 0, 0, 0, 10)
+uni1.dodavac_objekata("šime", 8, 19, 27, 5, 9, 0, 8)
+uni1.eulerova_simulacija()
+
+>>>>>>> bf653c96031f396c3046bc48b3d3e0c1156e6ddf

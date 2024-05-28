@@ -157,7 +157,7 @@ class har_oscilator:
 
 
 jak = har_oscilator(1, 4, 5, 3, 8, 0.01)
-#jak.ana_xt()
-#jak.preciznost()
-#jak.grafovi_num()
-#jak.period_titranja()
+jak.ana_xt()
+jak.preciznost()
+jak.grafovi_num()
+jak.period_titranja()
